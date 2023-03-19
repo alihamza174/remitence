@@ -1,0 +1,12 @@
+
+   <% if user_signed_in? %>
+    <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-danger" %>
+  <% end %>
+    <% if current_user&.admin? %>
+    <%= link_to "admin_dashboard" , admin_dashboard_path %>|<%= link_to "Go to students index", students_path %>
+  
+    <% elsif current_user&.super_admin? %>
+    <%= link_to "super_admin_dashboard" , admin_dashboard_path%>|<%= link_to "Go to students index", students_path %>
+     <% else current_user&.user? %>
+      <%= link_to "Go to students index", students_path %>
+  <% end %>
