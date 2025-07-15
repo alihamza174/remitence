@@ -1,6 +1,6 @@
-class Admin::DashboardController < ApplicationController
+class Admin::DashboardController < AdminController
 
   def index
-    render layout: 'admin'
+    # render layout: 'admin'
   end
 end

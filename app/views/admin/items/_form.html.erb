@@ -1,0 +1,29 @@
+<%= form_with(model: [:admin, item], local: true) do |form| %>
+  <% if item.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h4>
+      <ul>
+        <% item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="mb-3">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :purchase_price %>
+    <%= form.number_field :purchase_price, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :sale_price %>
+    <%= form.number_field :sale_price, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :stock_quantity %>
+    <%= form.number_field :stock_quantity, class: 'form-control' %>
+  </div>
+  <%= form.submit class: 'btn btn-primary' %>
+<% end %> 

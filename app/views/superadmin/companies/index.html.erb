@@ -1,0 +1,22 @@
+<h1>Companies</h1>
+<%= link_to 'New Company', new_superadmin_company_path, class: 'btn btn-primary' %>
+<table class="table table-bordered mt-3">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= company.name %></td>
+        <td>
+          <%= link_to 'Show', superadmin_company_path(company), class: 'btn btn-info btn-sm' %>
+          <%= link_to 'Edit', edit_superadmin_company_path(company), class: 'btn btn-warning btn-sm' %>
+          <%= link_to 'Delete', superadmin_company_path(company), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table> 

@@ -3,23 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-     
-  Role = %w(super_admin admin manager student )
 
-  def super_admin?
-    role=="super_admin"
-  end
-
-  def admin?
-    role=="admin"
-  end
-
-  def manager?
-    role=="manager"
-  end
-
-  def user?
-    role=="student"
-  end
-
+  enum role: { super_admin: 0, admin: 1, employee: 2 }
+  belongs_to :company
 end

@@ -1,0 +1,28 @@
+<h1>Items</h1>
+<%= link_to 'New Item', new_admin_item_path, class: 'btn btn-primary' %>
+<table class="table table-bordered mt-3">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Purchase Price</th>
+      <th>Sale Price</th>
+      <th>Stock Quantity</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.purchase_price %></td>
+        <td><%= item.sale_price %></td>
+        <td><%= item.stock_quantity %></td>
+        <td>
+          <%= link_to 'Show', admin_item_path(item), class: 'btn btn-info btn-sm' %>
+          <%= link_to 'Edit', edit_admin_item_path(item), class: 'btn btn-warning btn-sm' %>
+          <%= link_to 'Delete', admin_item_path(item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table> 
